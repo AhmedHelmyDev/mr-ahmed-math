@@ -115,20 +115,35 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Delete all button - functionality removed as per user request
-    // document.querySelector('.delete-all').addEventListener('click', () => {
-    //     if (confirm('هل أنت متأكد من حذف جميع الطلاب؟')) {
-    //         localStorage.removeItem(`students-${grade}`);
-    //         updateStudentsTable();
-    //         Toastify({
-    //             text: "تم حذف جميع الطلاب بنجاح",
-    //             duration: 3000,
-    //             gravity: "top",
-    //             position: 'right',
-    //             backgroundColor: "#dc3545"
-    //         }).showToast();
-    //     }
-    // });
+    document.querySelector('.delete-all').addEventListener('click', async () => {
+        if (confirm('هل أنت متأكد من حذف جميع الطلاب؟ هذا الإجراء لا يمكن التراجع عنه.')) {
+            const studentsSnapshot = await getDocs(studentsCollection);
+            const examsCollection = collection(db, "grades", grade, "exams");
+            const absencesCollection = collection(db, "grades", grade, "absences");
+
+            for (const studentDoc of studentsSnapshot.docs) {
+                await deleteDoc(studentDoc.ref);
+                const examDocRef = doc(examsCollection, studentDoc.id);
+                await deleteDoc(examDocRef);
+            }
+
+            const absencesSnapshot = await getDocs(absencesCollection);
+            for (const absenceDoc of absencesSnapshot.docs) {
+                await deleteDoc(absenceDoc.ref);
+            }
+
+            students = [];
+            updateStudentsTable();
+
+            Toastify({
+                text: "تم حذف جميع الطلاب بنجاح",
+                duration: 3000,
+                gravity: "top",
+                position: 'right',
+                backgroundColor: "#dc3545"
+            }).showToast();
+        }
+    });
 
     // Close modals
     closeButtons.forEach(btn => {
@@ -544,9 +559,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Add event listeners for note dots
         document.querySelectorAll('.note-dot').forEach(dot => {
             dot.addEventListener('click', (e) => {
-                const index = e.target.closest('.note-dot').dataset.index;
+                const studentId = e.target.closest('.note-dot').dataset.id;
                 const notes = getStudentNotes();
-                handleStudentNote(index, notes[index] || '');
+                handleStudentNote(studentId, notes[studentId] || '');
             });
         });
     }

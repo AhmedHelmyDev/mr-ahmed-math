@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                data-student="${student.id}" 
                                data-exam="${i}" 
                                value="${studentExams[i] || ''}"
-                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                               oninput="this.value = this.value.replace(/[^0-9غ]/g, '')"
                                maxlength="3">
                     </td>`;
             }
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const totalScore = document.querySelector(`.total-score-input[data-exam="${examNum}"]`).value;
 
                 // Validate score
-                if (score && totalScore && parseInt(score) > parseInt(totalScore)) {
+                if (score && totalScore && score !== 'غ' && parseInt(score) > parseInt(totalScore)) {
                     e.target.value = '';
                     showToast(`الدرجة يجب أن تكون أقل من أو تساوي ${totalScore}`, "#dc3545");
                     return;
@@ -214,35 +214,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             allExamScores[doc.id] = doc.data();
         });
 
-        // 1. Find all exams that have at least one score (active exams)
-        const activeExams = new Set();
-        for (const studentId in allExamScores) {
-            for (const examNum in allExamScores[studentId]) {
-                // Ensure the score is not an empty string before considering the exam active
-                if (allExamScores[studentId][examNum] !== '') {
-                    activeExams.add(examNum);
-                }
-            }
-        }
-
         const absencesCollectionRef = collection(db, "grades", grade, "absences");
+
         // Clear existing absences
         const existingAbsences = await getDocs(absencesCollectionRef);
         existingAbsences.forEach(async (doc) => {
             await deleteDoc(doc.ref);
         });
 
+        // Re-populate absences based on 'غ'
+        for (const student of students) {
+            if (!student.name) continue;
 
-        // 2. For each active exam, check all students
-        activeExams.forEach(examNum => {
-            students.forEach(async (student) => {
-                if (!student.name) return; // Skip empty student slots
-
-                const studentScores = allExamScores[student.id];
-                const hasScore = studentScores && studentScores[examNum] !== undefined && studentScores[examNum] !== null && studentScores[examNum] !== '';
-
-                if (!hasScore) {
-                    // Student is absent for this active exam
+            const studentScores = allExamScores[student.id] || {};
+            for (const examNum in studentScores) {
+                if (studentScores[examNum] === 'غ') {
                     await addDoc(absencesCollectionRef, {
                         studentId: student.id,
                         studentName: student.name,
@@ -250,8 +236,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                         date: new Date().toLocaleDateString('ar-EG')
                     });
                 }
-            });
-        });
+            }
+        }
     }
     
     // Add Exam button handler
