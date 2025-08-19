@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الممتنعين</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="defaulters.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="header-text">
+            <h1 class="main-title">قائمة الممتنعين</h1>
+        </div>
+        <img src="ChatGPT Image 12 أغسطس 2025، 08_56_00 م.png" alt="Al Yaqeen Logo" class="site-logo">
+    </header>
+
+    <main class="defaulters-section">
+        <div class="action-buttons">
+            <button class="action-btn delete-all-defaulters">
+                <i class="fas fa-trash"></i>
+                حذف جميع الممتنعين
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table class="defaulters-table">
+                <thead>
+                    <tr>
+                        <th>م</th>
+                        <th>رقم الطالب</th>
+                        <th>اسم الطالب</th>
+                        <th>الشهور الممتنع عنها</th>
+                        <th>إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="defaultersTableBody">
+                    <!-- Defaulters will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p class="credits">تم برمجة الموقع بواسطة المبرمج: مازن احمد بكر بدر</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="defaulters.js"></script>
+</body>
+</html>

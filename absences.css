@@ -1,0 +1,269 @@
+.absences-section {
+    padding: 2rem;
+    flex: 1;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.download-pdf-btn {
+    background: #0066cc !important;
+    color: white !important;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.download-pdf-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.table-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    overflow: auto;
+    margin: 1rem 0;
+    max-height: 80vh;
+    position: relative;
+}
+
+.absences-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    table-layout: fixed;
+    font-size: 0.9rem;
+}
+
+.absences-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: white;
+}
+
+.absences-table th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    white-space: nowrap;
+    border: 2px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+}
+
+.absences-table th:first-child {
+    width: 50px;
+}
+
+.absences-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.absences-table tr:nth-child(even) {
+    background-color: #f1f3f5;
+}
+
+.absences-table tr:hover {
+    background-color: #e8f4ff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.absences-table tr:hover td {
+    border-bottom-color: var(--primary-color);
+    border-top-color: var(--primary-color);
+}
+
+.absence-highlight {
+    background-color: #dc3545 !important;
+    color: white !important;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.empty-absences {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+.empty-absences i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #28a745;
+}
+
+.student-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.student-action-btn {
+    padding: 0.3rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.edit-btn {
+    background-color: #28a745;
+}
+
+.edit-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(40, 167, 69, 0.3);
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(220, 53, 69, 0.3);
+}
+
+/* Dark mode styles */
+body.dark .table-container {
+    background-color: #2d2d2d;
+}
+
+body.dark .absences-table {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+body.dark .absences-table td {
+    border-color: #3d3d3d;
+    background-color: #333333;
+}
+
+body.dark .absences-table th {
+    border-color: #2d2d2d;
+    border-bottom-color: #4d4d4d;
+}
+
+body.dark .absences-table tr:nth-child(even) {
+    background-color: #404040;
+}
+
+body.dark .absences-table tr:hover {
+    background-color: #4a4a4a;
+}
+
+body.dark .empty-absences {
+    background-color: #3d3d3d;
+    color: #adb5bd;
+}
+
+body.dark .absence-highlight {
+    background-color: #ff4444 !important;
+}
+
+body.dark .student-actions {
+    background: transparent;
+}
+
+body.dark .edit-btn {
+    background-color: #28a745;
+}
+
+body.dark .delete-btn {
+    background-color: #dc3545;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .absences-section {
+        padding: 1rem;
+    }
+
+    .table-container {
+        margin: 0.5rem 0;
+        max-height: 70vh;
+    }
+    
+    .absences-table {
+        font-size: 0.8rem;
+    }
+    
+    .absences-table th,
+    .absences-table td {
+        padding: 0.6rem 0.4rem;
+    }
+    
+    .student-action-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Accessibility Styles */
+@media (prefers-contrast: high) {
+    .absences-table th {
+        background-color: black;
+        color: white;
+    }
+
+    .absences-table td {
+        border-width: 2px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .absences-table {
+        box-shadow: none;
+    }
+    
+    .absences-table td {
+        border: 1px solid #000;
+    }
+}

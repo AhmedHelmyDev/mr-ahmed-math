@@ -1,0 +1,331 @@
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الأستاذ محمد عبد الشكور</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="main-page">
+    <header>
+        <div class="header-text">
+            <h1 class="main-title">أ/احمد ابو الخير</h1>
+            <h2 class="subtitle">خبير اول ماده الرياضيات</h2>
+        </div>
+        <img src="ChatGPT Image 12 أغسطس 2025، 08_56_00 م.png" alt="Al Yaqeen Logo" class="site-logo">
+        <button class="settings-btn">
+            <i class="fas fa-cog"></i>
+        </button>
+        <button class="clock-btn">
+            <i class="fas fa-clock"></i>
+        </button>
+    </header>
+
+    <main class="stages-section">
+        <div class="buttons-container">
+            <button class="stage-btn primary-stage">المرحلة الابتدائية</button>
+            <button class="stage-btn prep-stage">المرحلة الاعدادية</button>
+            <button class="stage-btn secondary-stage">المرحلة الثانوية</button>
+            <button class="stage-btn custom-stage">تخصيص مرحلة</button>
+        </div>
+        
+        <div class="arrow-container">
+            <svg class="arrow-down" width="50" height="50" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+            <div class="custom-stages-list"></div>
+        </div>
+    </main>
+
+    <!-- Modal for Primary Stage -->
+    <div id="primaryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>الصفوف الابتدائية</h2>
+            <div class="grade-buttons horizontal-layout">
+                <a href="students.html?grade=prim1" class="grade-btn grade1-primary">الصف الأول الابتدائي</a>
+                <a href="students.html?grade=prim2" class="grade-btn grade2-primary">الصف الثاني الابتدائي</a>
+                <a href="students.html?grade=prim3" class="grade-btn grade3-primary">الصف الثالث الابتدائي</a>
+                <a href="students.html?grade=prim4" class="grade-btn grade4-primary">الصف الرابع الابتدائي</a>
+                <a href="students.html?grade=prim5" class="grade-btn grade5-primary">الصف الخامس الابتدائي</a>
+                <a href="students.html?grade=prim6" class="grade-btn grade6-primary">الصف السادس الابتدائي</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Preparatory Stage -->
+    <div id="prepModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>الصفوف الاعدادية</h2>
+            <div class="grade-buttons">
+                <a href="students.html?grade=prep1" class="grade-btn grade1-prep">الصف الأول الاعدادي</a>
+                <a href="students.html?grade=prep2" class="grade-btn grade2-prep">الصف الثاني الاعدادي</a>
+                <a href="students.html?grade=prep3" class="grade-btn grade3-prep">الصف الثالث الاعدادي</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Secondary Stage -->
+    <div id="secondaryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>الصفوف الثانوية</h2>
+            <div class="grade-buttons">
+                <a href="students.html?grade=sec1" class="grade-btn grade1-secondary">الصف الأول الثانوي</a>
+                <a href="students.html?grade=sec2" class="grade-btn grade2-secondary">الصف الثاني الثانوي</a>
+                <a href="students.html?grade=sec3" class="grade-btn grade3-secondary">الصف الثالث الثانوي</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Stage Modal -->
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>تخصيص مرحلة جديدة</h2>
+            <form id="addStageForm">
+                <input type="text" id="stageInput" class="stage-input" placeholder="ادخل اسم المرحلة" required>
+                <button type="submit" class="add-stage-btn">إضافة المرحلة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Stage Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>تعديل المرحلة</h2>
+            <form id="editStageForm">
+                <input type="text" id="editStageInput" class="stage-input" placeholder="ادخل اسم المرحلة" required>
+                <button type="submit" class="add-stage-btn">تحديث المرحلة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content settings-modal">
+            <span class="close-btn">&times;</span>
+            <h2>الإعدادات</h2>
+            
+            <div class="settings-section">
+                <h3>المظهر</h3>
+                <div class="theme-selector">
+                    <button class="theme-btn light-theme" data-theme="light">
+                        <i class="fas fa-sun"></i>
+                        وضع النهار
+                    </button>
+                    <button class="theme-btn dark-theme" data-theme="dark">
+                        <i class="fas fa-moon"></i>
+                        وضع الليل
+                    </button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>حجم الخط</h3>
+                <div class="font-size-controls">
+                    <button class="font-size-btn" data-size="small">
+                        <i class="fas fa-text-height"></i>
+                        صغير
+                    </button>
+                    <button class="font-size-btn" data-size="medium">
+                        <i class="fas fa-text-height"></i>
+                        متوسط
+                    </button>
+                    <button class="font-size-btn" data-size="large">
+                        <i class="fas fa-text-height"></i>
+                        كبير
+                    </button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3><i class="fas fa-font"></i> الخط</h3>
+                <div class="font-selector">
+                    <button class="font-btn font-cairo" data-font="cairo">
+                        Cairo خط
+                    </button>
+                    <button class="font-btn font-almarai" data-font="almarai">
+                        Almarai خط
+                    </button>
+                    <button class="font-btn font-tajawal" data-font="tajawal">
+                        Tajawal خط
+                    </button>
+                    <button class="font-btn font-changa" data-font="changa">
+                        Changa خط
+                    </button>
+                    <button class="font-btn font-elmessiri" data-font="elmessiri">
+                        El Messiri خط
+                    </button>
+                    <button class="font-btn font-reemkufi" data-font="reemkufi">
+                        Reem Kufi خط
+                    </button>
+                    <button class="font-btn font-arefruqaa" data-font="arefruqaa">
+                        Aref Ruqaa خط
+                    </button>
+                    <button class="font-btn font-lateef" data-font="lateef">
+                        Lateef خط
+                    </button>
+                    <button class="font-btn font-scheherazade" data-font="scheherazade">
+                        Scheherazade خط
+                    </button>
+                    <button class="font-btn font-amiri" data-font="amiri">
+                        Amiri خط
+                    </button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>الألوان</h3>
+                <div class="color-scheme-selector">
+                    <button class="color-scheme-btn default" data-scheme="default">
+                        <div class="color-preview default-preview"></div>
+                        الألوان الافتراضية
+                    </button>
+                    <button class="color-scheme-btn blue" data-scheme="blue">
+                        <div class="color-preview blue-preview"></div>
+                        الأزرق
+                    </button>
+                    <button class="color-scheme-btn green" data-scheme="green">
+                        <div class="color-preview green-preview"></div>
+                        الأخضر
+                    </button>
+                </div>
+                
+                <div class="custom-color-picker">
+                    <h4>اصنع لونك الخاص</h4>
+                    <div class="color-inputs">
+                        <div class="color-input-group">
+                            <label>اللون الرئيسي</label>
+                            <input type="color" id="primaryColorPicker" value="#ff0000">
+                        </div>
+                        <div class="color-input-group">
+                            <label>اللون الثانوي</label>
+                            <input type="color" id="secondaryColorPicker" value="#0066cc">
+                        </div>
+                    </div>
+                    <div class="color-preview-custom"></div>
+                    <button class="apply-custom-colors">تطبيق الألوان المخصصة</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3><i class="fas fa-image"></i> خلفية الصفحات</h3>
+                
+                <div class="background-settings">
+                    <div class="background-type-selector">
+                        <select id="backgroundTargetSelect" class="background-select">
+                            <option value="all">جميع الصفحات</option>
+                            <option value="main">الصفحة الرئيسية فقط</option>
+                        </select>
+                    </div>
+
+                    <div class="background-controls">
+                        <input type="file" id="backgroundImageInput" accept="image/*" class="background-input">
+                        <button id="applyBackgroundBtn" class="apply-background-btn">
+                            <i class="fas fa-check"></i>
+                            تطبيق الخلفية
+                        </button>
+                        <button id="removeBackgroundBtn" class="remove-background-btn">
+                            <i class="fas fa-trash"></i>
+                            إزالة الخلفية
+                        </button>
+                    </div>
+
+                    <div class="background-preview">
+                        <img id="backgroundPreview" alt="معاينة الخلفية" style="display: none;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section mobile-view-section">
+                <h3><i class="fas fa-mobile-alt"></i> وضع عرض الهاتف</h3>
+                <div class="mobile-view-toggle">
+                    <div class="mobile-view-label">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>تفعيل وضع عرض الهاتف</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="mobileViewToggle">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3><i class="fas fa-save"></i> النسخ الاحتياطي</h3>
+                <div class="backup-controls">
+                    <button class="backup-btn create-backup-btn">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        إنشاء نسخة احتياطية
+                    </button>
+                    <button class="backup-btn restore-backup-btn">
+                        <i class="fas fa-cloud-download-alt"></i>
+                        استعادة نسخة احتياطية
+                    </button>
+                    <input type="file" id="restoreBackupFile" accept=".json" style="display:none;">
+                </div>
+            </div>
+
+            <button class="annual-transfer-btn">
+                <i class="fas fa-exchange-alt"></i>
+                النقل العام
+            </button>
+
+            <button class="reset-settings-btn">
+                <i class="fas fa-undo"></i>
+                إعادة ضبط الإعدادات
+            </button>
+
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                تسجيل الخروج
+            </button>
+        </div>
+    </div>
+
+    <div id="clockModal" class="modal">
+        <div class="modal-content clock-modal">
+            <span class="close-btn">&times;</span>
+            <h2>الوقت والتاريخ</h2>
+            <div class="clock-display">
+                <div class="time" id="timeDisplay">00:00:00</div>
+                <div class="gregorian-date">
+                    <span class="date-label">الميلادي:</span>
+                    <span id="gregorianDate"></span>
+                </div>
+                <div class="hijri-date">
+                    <span class="date-label">الهجري:</span>
+                    <span id="hijriDate"></span>
+                </div>
+                <div class="coptic-date">
+                    <span class="date-label">القبطي:</span>
+                    <span id="copticDate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="credits">تم برمجة الموقع بواسطة المبرمج: مازن احمد بكر بدر</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-hijri@2.1.2/moment-hijri.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="script.js"></script>
+
+    <script>
+        // Add logout functionality
+        document.querySelector('.logout-btn')?.addEventListener('click', () => {
+            if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

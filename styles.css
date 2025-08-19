@@ -1,0 +1,1723 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lateef:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #ff0000;
+    --secondary-color: #0066cc;
+}
+
+body.light {
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+body.dark {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark .modal-content {
+    background-color: var(--modal-bg);
+    color: #ffffff;
+    border: 1px solid #3d3d3d;
+}
+
+body.dark .grade-btn {
+    background-color: #3d3d3d;
+}
+
+body.dark .close-btn {
+    color: #ffffff;
+}
+
+body.dark .stage-input {
+    background-color: #3d3d3d;
+    color: #ffffff;
+    border-color: #4d4d4d;
+}
+
+body.dark .notes-input {
+    background-color: #3d3d3d;
+    color: #ffffff;
+    border-color: #4d4d4d;
+}
+
+body.dark .theme-btn,
+body.dark .font-size-btn,
+body.dark .color-scheme-btn {
+    background-color: #3d3d3d;
+    color: #ffffff;
+    border-color: #4d4d4d;
+}
+
+body.dark .theme-btn.active,
+body.dark .font-size-btn.active,
+body.dark .color-scheme-btn.active {
+    background-color: #0066cc;
+    border-color: #0066cc;
+}
+
+body.dark .settings-section {
+    background-color: #2d2d2d;
+    border: 1px solid #3d3d3d;
+}
+
+body.dark .custom-color-picker {
+    background-color: #2d2d2d;
+    border: 1px solid #3d3d3d;
+}
+
+body.dark .color-input-group label {
+    color: #aaa;
+}
+
+body.dark .switch-slider {
+    background-color: #3d3d3d;
+}
+
+body.dark input:checked + .switch-slider {
+    background-color: #0066cc;
+}
+
+body.dark .clock-display {
+    background-color: #2d2d2d;
+    border: 1px solid #3d3d3d;
+}
+
+body.dark .gregorian-date,
+body.dark .hijri-date,
+body.dark .coptic-date {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+body.dark .time {
+    color: #ffffff;
+}
+
+body.dark .date-label {
+    color: #0066cc;
+}
+
+body.dark .note-date {
+    color: #cccccc;
+}
+
+body.dark .note-content {
+    color: #ffffff;
+}
+
+body.dark .action-btn {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+body.dark .add-student {
+    background-color: #0066cc !important;
+}
+
+body.dark .add-notes {
+    background-color: #28a745 !important;
+}
+
+body.dark .delete-all {
+    background-color: #dc3545 !important;
+}
+
+body.dark .empty-cells {
+    background-color: #6c757d !important;
+}
+
+body.dark .note-btn {
+    color: #ffffff;
+}
+
+body.dark .empty-cell-item {
+    background-color: #2d2d2d;
+    border-color: #3d3d3d;
+}
+
+body.dark .cell-number {
+    color: #ffffff;
+}
+
+body.dark #emptyCellsList {
+    background-color: #2d2d2d;
+}
+
+body.dark .empty-message {
+    color: #cccccc;
+}
+
+body.dark .students-table td {
+    border-color: #3d3d3d;
+    color: #ffffff;
+}
+
+body.dark .students-table th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+body.dark .students-table tr:nth-child(even) {
+    background-color: #333333;
+}
+
+body.dark .students-table tr:hover td {
+    background-color: #404040;
+}
+
+body.dark .highlight {
+    background-color: #665c00 !important;
+}
+
+body.dark .highlight td {
+    background-color: #665c00 !important;
+    color: #ffffff !important;
+}
+
+body.light .modal-content {
+    background-color: var(--modal-bg);
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+body.light .stage-input {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+}
+
+body.light .notes-input {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+}
+
+body.light .theme-btn,
+body.light .font-size-btn,
+body.light .color-scheme-btn {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    color: #333333;
+}
+
+body.light .theme-btn.active,
+body.light .font-size-btn.active,
+body.light .color-scheme-btn.active {
+    background-color: #0066cc;
+    color: #ffffff;
+    border-color: #0066cc;
+}
+
+body.light .settings-section {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+body.light .custom-color-picker {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+body.light .apply-custom-colors {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+body.light .reset-settings-btn {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+body.light .clock-display {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+body.light .gregorian-date,
+body.light .hijri-date,
+body.light .coptic-date {
+    background-color: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Cairo', sans-serif; /* Default font */
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.header-text {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    display: none;
+}
+
+.stages-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.stage-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.stage-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.prep-stage {
+    background-color: var(--secondary-color) !important;
+}
+
+.secondary-stage {
+    background-color: var(--primary-color) !important;
+}
+
+.custom-stage {
+    background-color: #000000 !important;
+}
+
+.primary-stage {
+    background: linear-gradient(45deg, #8B4513, #A0522D, #CD853F, #D2B48C) !important;
+    background-size: 400% 400% !important;
+    animation: gradientShift 3s ease infinite !important;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Primary Grade Colors - Circular buttons */
+.grade1-primary {
+    background-color: #FF6347 !important;
+    border-radius: 50px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.grade2-primary {
+    background-color: #32CD32 !important;
+    border-radius: 50px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.grade3-primary {
+    background-color: #FF69B4 !important;
+    border-radius: 50px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.grade4-primary {
+    background-color: #1E90FF !important;
+    border-radius: 50px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.grade5-primary {
+    background-color: #FFD700 !important;
+    border-radius: 50px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.grade6-primary {
+    background-color: #8A2BE2 !important;
+    border-radius: 50px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.arrow-down {
+    display: block !important;
+    width: 50px;
+    height: 50px;
+    margin: 1rem auto;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.arrow-down:hover {
+    transform: scale(1.1);
+}
+
+.arrow-down.active {
+    transform: rotate(180deg);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+footer {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    text-align: center;
+}
+
+.credits {
+    color: white;
+    font-size: 1rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+/* Center stage buttons in modals */
+.modal-content {
+    background-color: var(--modal-bg);
+    margin: 15% auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding: 2rem;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center grade buttons in the modal */
+.grade-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+/* Make grade buttons full width and circular */
+.grade-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    margin: 0.5rem auto;
+}
+
+.grade-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .grade-buttons {
+        padding: 1rem;
+        width: 90%;
+    }
+    
+    .grade-btn {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+/* Ensure all modal content is centered */
+.modal-content > * {
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.close-btn {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Preparatory Grade Colors */
+.grade1-prep {
+    background-color: #4CAF50 !important;
+}
+
+.grade2-prep {
+    background-color: #2196F3 !important;
+}
+
+.grade3-prep {
+    background-color: #9C27B0 !important;
+}
+
+/* Secondary Grade Colors */
+.grade1-secondary {
+    background-color: #FF9800 !important;
+}
+
+.grade2-secondary {
+    background-color: #E91E63 !important;
+}
+
+.grade3-secondary {
+    background-color: #673AB7 !important;
+}
+
+/* Custom Stage Modal Input */
+.stage-input {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+.add-stage-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.add-stage-btn:hover {
+    transform: scale(1.05);
+}
+
+.submit-btn {
+    position: sticky;
+    bottom: 0;
+    background-color: #4CAF50;
+    margin: 1rem -2rem -2rem;
+    padding: 1rem;
+    border-radius: 0;
+    z-index: 10;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+}
+
+.notes-input {
+    min-height: 150px;
+    resize: vertical;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.image-input-container {
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+#imagePreview img, #editImagePreview img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.note-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.note-content {
+    flex: 1;
+    overflow-wrap: break-word;
+}
+
+.note-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Toast Customization */
+.toastify {
+    direction: rtl;
+    font-family: inherit;
+}
+
+.settings-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+.settings-btn:hover {
+    transform: rotate(90deg);
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* Settings Modal Styles */
+.settings-modal {
+    max-width: 600px !important;
+    width: 90% !important;
+    margin: 5vh auto !important;
+}
+
+.settings-section {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.settings-section h3 {
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settings-section h3 i {
+    font-size: 1.1rem;
+}
+
+.theme-selector, 
+.font-size-controls,
+.color-scheme-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.theme-btn,
+.font-size-btn,
+.color-scheme-btn {
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    border: 2px solid #e0e0e0;
+    background: none;
+    cursor: pointer;
+}
+
+.theme-btn.active,
+.font-size-btn.active,
+.color-scheme-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.custom-color-picker {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.03);
+}
+
+.custom-color-picker h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.color-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.color-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.color-input-group label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.color-input-group input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.color-preview-custom {
+    height: 60px;
+    border-radius: 10px;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.apply-custom-colors {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.apply-custom-colors:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.annual-transfer-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.annual-transfer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.reset-settings-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.reset-settings-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220,53,69,0.3);
+}
+
+/* Add logout functionality to settings */
+.logout-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220,53,69,0.3);
+}
+
+/* Clock Styles */
+.clock-btn {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+
+.clock-btn:hover {
+  transform: scale(1.1);
+}
+
+.clock-modal .modal-content {
+  max-width: 400px;
+}
+
+.clock-display {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 1rem 0;
+  text-align: center;
+  direction: ltr;
+}
+
+.time {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: monospace;
+}
+
+.gregorian-date,
+.hijri-date,
+.coptic-date {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.date-label {
+  font-weight: bold;
+  color: var(--secondary-color);
+  margin-left: 0.5rem;
+}
+
+/* Custom Stages Display */
+.custom-stages-list {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    display: none;
+}
+
+.custom-stages-list.active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.custom-stage-item {
+    padding: 1rem 1.5rem;
+    margin: 0.2rem;
+    border-radius: 15px;
+    color: white !important;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: auto;
+    min-width: 200px;
+}
+
+/* Update stage actions menu positioning */
+.stage-actions {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 8px;
+    margin-right: 10px;
+    min-width: 150px;
+    z-index: 100;
+    display: none;
+}
+
+.stage-actions.active {
+    display: block;
+}
+
+.stage-actions .action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+}
+
+.stage-actions .action-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.stage-actions .action-btn.delete {
+    color: #dc3545;
+}
+
+body.dark .stage-actions {
+    background: #2d2d2d;
+    border: 1px solid #3d3d3d;
+}
+
+body.dark .stage-actions .action-btn {
+    color: white;
+}
+
+body.dark .stage-actions .action-btn:hover {
+    background-color: #3d3d3d;
+}
+
+body.dark .stage-actions .action-btn.delete {
+    color: #ff6b6b;
+}
+
+/* Dark mode styles */
+body.dark .arrow-down {
+    color: var(--secondary-color);
+}
+
+body {
+    --modal-bg: #ffffff;
+}
+
+body.dark {
+    --modal-bg: #2d2d2d;
+}
+
+.swal2-confirm {
+    position: relative;
+    overflow: hidden;
+}
+
+.swal2-confirm:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+}
+
+.timer-text {
+    position: absolute;
+    bottom: -1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #666;
+}
+
+body.dark .timer-text {
+    color: #aaa !important;
+}
+
+.action-btn.defaulters,
+.action-btn.delete-all {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+body.dark .action-btn.defaulters,
+body.dark .action-btn.delete-all {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+body.light .action-btn.defaulters,
+body.light .action-btn.delete-all {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.action-btn.defaulters:hover,
+.action-btn.delete-all:hover {
+    background-color: #c82333 !important;
+    opacity: 0.9;
+}
+
+.site-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border: 2px solid white;
+}
+
+.main-page .clock-btn {
+    right: auto;
+    left: 20px;
+}
+
+.font-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.font-btn {
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    border: 2px solid #e0e0e0;
+    background: none;
+    cursor: pointer;
+}
+
+.font-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.font-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+html.font-cairo { 
+    font-family: 'Cairo', sans-serif; 
+}
+
+html.font-almarai { 
+    font-family: 'Almarai', sans-serif; 
+}
+
+html.font-tajawal { 
+    font-family: 'Tajawal', sans-serif; 
+}
+
+html.font-changa { 
+    font-family: 'Changa', sans-serif; 
+}
+
+html.font-elmessiri { 
+    font-family: 'El Messiri', sans-serif; 
+}
+
+html.font-reemkufi { 
+    font-family: 'Reem Kufi', sans-serif; 
+}
+
+html.font-arefruqaa { 
+    font-family: 'Aref Ruqaa', serif; 
+}
+
+html.font-lateef { 
+    font-family: 'Lateef', serif; 
+}
+
+html.font-scheherazade { 
+    font-family: 'Scheherazade New', serif; 
+}
+
+html.font-amiri { 
+    font-family: 'Amiri', serif; 
+}
+
+body.dark .font-btn {
+    border-color: #3d3d3d;
+    color: #ffffff;
+}
+
+body.dark .font-btn:hover {
+    background-color: #3d3d3d;
+}
+
+body.dark .font-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* Add watermark styles */
+body::after {
+    content: "أ/احمد ابو الخير";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 5rem;
+    color: rgba(0, 102, 204, 0.1); /* Thick blue with low opacity */
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: -1;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+body.dark::after {
+    color: rgba(0, 102, 204, 0.07); /* Slightly darker for dark mode */
+}
+
+/* Ensure watermark doesn't interfere with backgrounds */
+.custom-background::after {
+    content: "أ/احمد ابو الخير";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 5rem;
+    color: rgba(0, 102, 204, 0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+/* Fade animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.custom-background {
+    animation: fadeIn 0.5s ease;
+}
+
+.background-preview img {
+    animation: fadeIn 0.3s ease;
+}
+
+.keyboard-modal .modal-content {
+    position: fixed;
+    cursor: move;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    width: auto;
+    min-width: 320px;
+    margin: 0;
+    padding: 1rem;
+}
+
+.keyboard-modal .modal-content.dragging {
+    transition: none;
+    opacity: 0.8;
+}
+
+.keyboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #3d3d3d;
+    cursor: move;
+}
+
+.keyboard-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #0dcaf0;
+}
+
+.keyboard-close {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    transition: color 0.2s;
+}
+
+.keyboard-close:hover {
+    color: #bb2d3b;
+}
+
+.background-settings {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  margin: 1rem 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark .background-settings {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.background-input {
+  width: 100%;
+  padding: 1.5rem;
+  border: 2px dashed #999;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.background-input:hover {
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 1);
+}
+
+body.dark .background-input {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: #666;
+}
+
+body.dark .background-input:hover {
+  border-color: var(--primary-color);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.background-select {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.background-select:hover {
+  border-color: var(--primary-color);
+}
+
+body.dark .background-select {
+  background: #2d2d2d;
+  color: white;
+  border-color: #4d4d4d;
+}
+
+.background-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.background-preview {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 200px;
+  border: 2px solid #e0e0e0;
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+.background-preview img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.background-preview::after {
+    content: 'معاينة الخلفية';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #999;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.background-preview.has-image::after {
+    display: none;
+}
+
+.apply-background-btn,
+.remove-background-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    color: white;
+    font-weight: bold;
+}
+
+.apply-background-btn {
+    background-color: var(--primary-color);
+}
+
+.remove-background-btn {
+    background-color: #dc3545;
+}
+
+.apply-background-btn:hover,
+.remove-background-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+/* Mobile View Toggle */
+.mobile-view-section {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+.mobile-view-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.mobile-view-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .switch-slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .switch-slider:before {
+    transform: translateX(26px);
+}
+
+/* Mobile View Styles */
+body.mobile-view {
+    font-size: 14px;
+}
+
+body.mobile-view .header-text .main-title {
+    font-size: 1.8rem;
+}
+
+body.mobile-view .header-text .subtitle {
+    font-size: 1.2rem;
+}
+
+body.mobile-view .site-logo {
+    width: 80px;
+    height: 80px;
+}
+
+body.mobile-view .stage-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+}
+
+body.mobile-view .buttons-container {
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+body.mobile-view .action-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+}
+
+body.mobile-view .action-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* Mobile View Table Styles */
+body.mobile-view .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body.mobile-view .students-table {
+    font-size: 0.75rem;
+    min-width: 800px;
+}
+
+body.mobile-view .students-table th,
+body.mobile-view .students-table td {
+    padding: 0.4rem 0.2rem;
+    white-space: nowrap;
+}
+
+body.mobile-view .students-table th:first-child,
+body.mobile-view .students-table td:first-child {
+    width: 60px;
+    padding: 0.3rem;
+}
+
+body.mobile-view .students-table td:nth-child(2) {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.mobile-view .payment-circle {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+}
+
+body.mobile-view .payment-circle.paid {
+    width: 40px;
+    min-width: 40px;
+    height: 18px;
+    font-size: 0.6rem;
+    padding: 2px 6px;
+}
+
+body.mobile-view .student-action-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+}
+
+body.mobile-view .note-dot {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+}
+
+body.mobile-view .student-number {
+    font-size: 0.8rem;
+}
+
+/* Mobile View Exams Table */
+body.mobile-view .exams-table {
+    font-size: 0.7rem;
+    min-width: 900px;
+}
+
+body.mobile-view .exam-score {
+    width: 45px;
+    padding: 0.3rem;
+    font-size: 0.75rem;
+}
+
+body.mobile-view .total-score-input {
+    width: 60px;
+    padding: 0.3rem;
+    font-size: 0.75rem;
+}
+
+body.mobile-view .total-scores-row th {
+    height: 40px;
+    padding: 0.3rem !important;
+}
+
+/* Mobile View Memos Table */
+body.mobile-view .memos-table {
+    font-size: 0.8rem;
+}
+
+body.mobile-view .memo-status {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 80px;
+}
+
+body.mobile-view .memos-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+body.mobile-view .pending-delivery-btn,
+body.mobile-view .payment-required-btn,
+body.mobile-view .received-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+}
+
+/* Mobile View Modal Adjustments */
+body.mobile-view .modal-content {
+    width: 95%;
+    margin: 5% auto;
+    padding: 1.5rem;
+}
+
+body.mobile-view .settings-modal {
+    width: 98% !important;
+    margin: 2vh auto !important;
+    max-height: 96vh;
+}
+
+body.mobile-view .notes-modal-content {
+    width: 98%;
+    margin: 2vh auto;
+}
+
+body.mobile-view .notes-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+/* Horizontal layout for primary stage buttons */
+.horizontal-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%; /* Ensure the container takes full width of modal content */
+    padding: 2rem;
+}
+
+.horizontal-layout .grade-btn {
+    width: 100%; /* Make buttons take full width of their parent container (horizontal-layout) */
+    max-width: 350px; /* Keep the existing max-width for design consistency */
+    padding: 1.2rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .horizontal-layout {
+        padding: 1rem;
+    }
+    
+    .horizontal-layout .grade-btn {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .horizontal-layout .grade-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}

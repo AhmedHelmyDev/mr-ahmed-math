@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الامتحانات</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="students.css">
+    <link rel="stylesheet" href="exams.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- Add html2canvas and jsPDF libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="header-text">
+            <h1 class="main-title" id="gradeTitle">قائمة الامتحانات</h1>
+        </div>
+        <img src="ChatGPT Image 12 أغسطس 2025، 08_56_00 م.png" alt="Al Yaqeen Logo" class="site-logo">
+    </header>
+
+    <main class="exams-section">
+        <div class="action-buttons">
+            <button class="action-btn student-grades-btn">
+                <i class="fas fa-chart-line"></i>
+                درجات الطلاب
+            </button>
+            <button class="action-btn add-exam-btn">
+                <i class="fas fa-plus"></i>
+                إضافة امتحان
+            </button>
+        </div>
+
+        <div class="search-container">
+            <div class="input-with-keyboard">
+                <input type="text" id="examStudentSearch" class="search-input" placeholder="ابحث عن طالب...">
+                <button type="button" class="keyboard-btn" data-target="examStudentSearch">
+                    <i class="fas fa-keyboard"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="exams-table">
+                <thead id="examsTableHead">
+                    <!-- Headers will be generated here dynamically -->
+                </thead>
+                <tbody id="examsTableBody">
+                    <!-- Students and their exam scores will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Student Grades Modal -->
+    <div id="studentGradesModal" class="modal">
+        <div class="modal-content student-grades-modal">
+            <span class="close-btn">&times;</span>
+            <h2>درجات الطلاب</h2>
+            
+            <div class="exam-selection">
+                <h3>اختر الامتحانات:</h3>
+                <div class="selection-options">
+                    <label class="selection-option">
+                        <input type="radio" name="examSelection" value="specific" checked>
+                        <span>تحديد امتحانات محددة</span>
+                    </label>
+                    <label class="selection-option">
+                        <input type="radio" name="examSelection" value="all">
+                        <span>جميع الامتحانات</span>
+                    </label>
+                    <label class="selection-option">
+                        <input type="radio" name="examSelection" value="auto">
+                        <span>تحديد تلقائي (الامتحانات بدرجات كلية فقط)</span>
+                    </label>
+                </div>
+                
+                <div class="specific-exams" id="specificExamsContainer">
+                    <h4>اختر الامتحانات:</h4>
+                    <div class="exam-checkboxes">
+                        <label><input type="checkbox" value="1"> الامتحان الأول</label>
+                        <label><input type="checkbox" value="2"> الامتحان الثاني</label>
+                        <label><input type="checkbox" value="3"> الامتحان الثالث</label>
+                        <label><input type="checkbox" value="4"> الامتحان الرابع</label>
+                        <label><input type="checkbox" value="5"> الامتحان الخامس</label>
+                        <label><input type="checkbox" value="6"> الامتحان السادس</label>
+                        <label><input type="checkbox" value="7"> الامتحان السابع</label>
+                        <label><input type="checkbox" value="8"> الامتحان الثامن</label>
+                    </div>
+                </div>
+                
+                <button class="show-grades-btn">عرض الدرجات</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="virtualKeyboardModal" class="modal keyboard-modal">
+        <div class="modal-content">
+            <div class="keyboard-header">
+                <h2>لوحة المفاتيح</h2>
+                <button class="keyboard-close">&times;</button>
+            </div>
+            <div class="virtual-keyboard">
+                <!-- Keyboard will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Settings Modal -->
+    <div id="pdfSettingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>إعدادات PDF</h2>
+            <div class="settings-section">
+                <label for="pdfFontSize">حجم الخط:</label>
+                <input type="range" id="pdfFontSize" min="8" max="24" value="16">
+            </div>
+            <button id="generatePdfBtn" class="download-pdf-btn">
+                <i class="fas fa-file-pdf"></i>
+                تنزيل PDF
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p class="credits">تم برمجة الموقع بواسطة المبرمج: مازن احمد بكر بدر</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="exams.js"></script>
+</body>
+</html>

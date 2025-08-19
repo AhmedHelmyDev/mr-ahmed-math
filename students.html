@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الطلاب</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="students.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="header-text">
+            <h1 class="main-title" id="gradeTitle">إدارة الطلاب</h1>
+        </div>
+        <img src="ChatGPT Image 12 أغسطس 2025، 08_56_00 م.png" alt="Al Yaqeen Logo" class="site-logo">
+    </header>
+
+    <main class="students-section">
+        <div class="action-buttons">
+            <div class="search-container">
+                <div class="input-with-keyboard">
+                    <input type="text" id="studentSearch" class="search-input" placeholder="ابحث عن طالب...">
+                    <button type="button" class="keyboard-btn" data-target="studentSearch">
+                        <i class="fas fa-keyboard"></i>
+                    </button>
+                </div>
+            </div>
+            <button class="action-btn add-student">
+                <i class="fas fa-user-plus"></i>
+                إضافة طالب
+            </button>
+            <button class="action-btn add-notes">
+                <i class="fas fa-sticky-note"></i>
+                إضافة وعرض الملاحظات
+            </button>
+            <button class="action-btn exams">
+                <i class="fas fa-file-alt"></i>
+                قسم الامتحانات
+            </button>
+            <button class="action-btn memos">
+                <i class="fas fa-book"></i>
+                المذكرات
+            </button>
+            <button class="action-btn curriculum-btn">
+                <i class="fas fa-book-reader"></i>
+                المنهج
+                <i class="fas fa-lock" style="margin-right: 8px;"></i>
+            </button>
+            <button class="action-btn defaulters">
+                <i class="fas fa-exclamation-triangle"></i>
+                الممتنعين
+            </button>
+            <button class="action-btn empty-cells">
+                <i class="fas fa-th"></i>
+                المربعات الخالية
+            </button>
+            <button class="action-btn delete-all">
+                <i class="fas fa-trash"></i>
+                حذف جميع الطلاب
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th>م</th>
+                        <th>اسم الطالب</th>
+                        <th>أغسطس</th>
+                        <th>سبتمبر</th>
+                        <th>أكتوبر</th>
+                        <th>نوفمبر</th>
+                        <th>ديسمبر</th>
+                        <th>يناير</th>
+                        <th>فبراير</th>
+                        <th>مارس</th>
+                        <th>أبريل</th>
+                        <th>مايو</th>
+                        <th>يونيو</th>
+                        <th>إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                    <!-- Students will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>إضافة طالب جديد</h2>
+            <form id="addStudentForm">
+                <div class="input-with-keyboard">
+                    <input type="text" id="studentName" class="student-input" placeholder="اسم الطالب" required>
+                    <button type="button" class="keyboard-btn" data-target="studentName">
+                        <i class="fas fa-keyboard"></i>
+                    </button>
+                </div>
+                <button type="submit" class="submit-btn">إضافة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Notes Modal -->
+    <div id="addNotesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>إضافة وعرض الملاحظات</h2>
+            <div class="notes-buttons">
+                <button class="notes-btn add-note-btn">
+                    <i class="fas fa-plus"></i>
+                    إضافة ملاحظة
+                </button>
+                <button class="notes-btn view-notes-btn">
+                    <i class="fas fa-list"></i>
+                    قائمة الملاحظات
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Note Modal -->
+    <div id="newNoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>إضافة ملاحظة جديدة</h2>
+            <form id="addNoteForm">
+                <div class="note-type-selector">
+                    <button type="button" class="type-btn active" data-type="text">نص فقط</button>
+                    <button type="button" class="type-btn" data-type="image">صورة ونص</button>
+                </div>
+                <div class="image-input-container" style="display: none;">
+                    <input type="file" id="noteImage" accept="image/*" class="notes-input">
+                    <div id="imagePreview"></div>
+                </div>
+                <textarea id="noteContent" class="notes-input" placeholder="اكتب ملاحظتك هنا..." required></textarea>
+                <button type="submit" class="submit-btn">حفظ الملاحظة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Notes Modal -->
+    <div id="viewNotesModal" class="modal">
+        <div class="modal-content notes-modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>قائمة الملاحظات</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Note Modal -->
+    <div id="editNoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>تعديل الملاحظة</h2>
+            <form id="editNoteForm">
+                <div class="image-input-container" id="editImageContainer" style="display: none;">
+                    <input type="file" id="editNoteImage" accept="image/*" class="notes-input">
+                    <div id="editImagePreview"></div>
+                </div>
+                <textarea id="editNoteContent" class="notes-input" placeholder="اكتب ملاحظتك هنا..." required></textarea>
+                <button type="submit" class="submit-btn">تحديث الملاحظة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Empty Cells Modal -->
+    <div id="emptyCellsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>المربعات الخالية</h2>
+            <div id="emptyCellsList" class="empty-cells-list">
+                <!-- Empty cells will be listed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Virtual Keyboard Modal -->
+    <div id="virtualKeyboardModal" class="modal keyboard-modal">
+        <div class="modal-content">
+            <div class="keyboard-header">
+                <h2>لوحة المفاتيح</h2>
+                <button class="keyboard-close">&times;</button>
+            </div>
+            <div class="virtual-keyboard">
+                <!-- Keyboard will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Exams Modal -->
+    <div id="examsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>قسم الامتحانات</h2>
+            <div class="exams-buttons">
+                <button class="exams-btn view-exams-btn">
+                    <i class="fas fa-file-alt"></i>
+                    الامتحانات
+                </button>
+                <button class="exams-btn view-absences-btn">
+                    <i class="fas fa-user-times"></i>
+                    المتغيبين
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memos Modal -->
+    <div id="memosModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>المذكرات</h2>
+            <div class="memos-buttons">
+                <button class="memos-btn first-term">
+                    <i class="fas fa-book-open"></i>
+                    الترم الأول
+                    <span class="term-badge">1</span>
+                </button>
+                <button class="memos-btn second-term">
+                    <i class="fas fa-book-open"></i>
+                    الترم الثاني
+                    <span class="term-badge">2</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="studentNoteModal" class="modal student-note-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>ملاحظات الطالب</h2>
+            <form id="studentNoteForm">
+                <textarea id="studentNoteText" class="student-note-textarea" placeholder="اكتب ملاحظاتك هنا..."></textarea>
+                <button type="submit" class="submit-btn">حفظ الملاحظة</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p class="credits">تم برمجة الموقع بواسطة المبرمج: مازن احمد بكر بدر</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="students.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الملاحظات</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="students.css">
+    <link rel="stylesheet" href="notes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="header-text">
+            <h1 class="main-title">قائمة الملاحظات</h1>
+        </div>
+        <img src="ChatGPT Image 12 أغسطس 2025، 08_56_00 م.png" alt="Al Yaqeen Logo" class="site-logo">
+    </header>
+
+    <main class="notes-main">
+        <div class="notes-header">
+            <button class="add-note-btn action-btn">
+                <i class="fas fa-plus"></i>
+                إضافة ملاحظة جديدة
+            </button>
+        </div>
+        
+        <div id="notesList" class="notes-list-container">
+            <!-- Notes will be added here dynamically -->
+        </div>
+    </main>
+
+    <!-- Add New Note Modal -->
+    <div id="newNoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>إضافة ملاحظة جديدة</h2>
+            <form id="addNoteForm">
+                <div class="note-type-selector">
+                    <button type="button" class="type-btn active" data-type="text">نص فقط</button>
+                    <button type="button" class="type-btn" data-type="image">صورة ونص</button>
+                </div>
+                <div class="image-input-container" style="display: none;">
+                    <input type="file" id="noteImage" accept="image/*" class="notes-input">
+                    <div id="imagePreview"></div>
+                </div>
+                <textarea id="noteContent" class="notes-input" placeholder="اكتب ملاحظتك هنا..." required></textarea>
+                <button type="submit" class="submit-btn">حفظ الملاحظة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Note Modal -->
+    <div id="editNoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>تعديل الملاحظة</h2>
+            <form id="editNoteForm">
+                <div class="image-input-container" id="editImageContainer">
+                    <input type="file" id="editNoteImage" accept="image/*" class="notes-input">
+                    <div id="editImagePreview"></div>
+                </div>
+                <textarea id="editNoteContent" class="notes-input" placeholder="اكتب ملاحظتك هنا..." required></textarea>
+                <button type="submit" class="submit-btn">تحديث الملاحظة</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p class="credits">تم برمجة الموقع بواسطة المبرمج: مازن احمد بكر بدر</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="notes.js"></script>
+</body>
+</html>

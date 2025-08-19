@@ -1,0 +1,81 @@
+.notes-main {
+    padding: 2rem;
+    flex: 1;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.notes-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.note-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+}
+
+.note-item.fade-in {
+     animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.note-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.note-actions {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.note-item:hover .note-actions {
+    opacity: 1;
+}
+
+.empty-notes {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+    .notes-list-container {
+        grid-template-columns: 1fr;
+    }
+
+    .note-actions {
+        opacity: 1;
+    }
+}

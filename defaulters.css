@@ -1,0 +1,129 @@
+.defaulters-section {
+    padding: 2rem;
+    flex: 1;
+}
+
+.defaulters-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.defaulters-table th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.defaulters-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.defaulters-table tr:last-child td {
+    border-bottom: none;
+}
+
+.defaulters-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.months-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.month-tag {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.remove-defaulter {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.remove-defaulter:hover {
+    transform: scale(1.1);
+    background-color: #c82333;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.delete-all-defaulters {
+    background-color: #dc3545 !important;
+    color: white !important;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.delete-all-defaulters:hover {
+    transform: scale(1.05);
+    background-color: #c82333 !important;
+    opacity: 0.9;
+}
+
+body.dark .defaulters-table {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+body.dark .defaulters-table td {
+    border-color: #3d3d3d;
+}
+
+body.dark .defaulters-table tr:hover {
+    background-color: #3d3d3d;
+}
+
+body.dark .delete-all-defaulters {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+body.light .delete-all-defaulters {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+@media (max-width: 768px) {
+    .defaulters-table {
+        font-size: 0.9rem;
+    }
+
+    .months-list {
+        font-size: 0.8rem;
+    }
+
+    .month-tag {
+        padding: 0.2rem 0.6rem;
+    }
+}

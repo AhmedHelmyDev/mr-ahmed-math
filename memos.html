@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المذكرات</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="memos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="header-text">
+            <h1 class="main-title" id="termTitle">مذكرات الطلاب</h1>
+        </div>
+        <img src="ChatGPT Image 12 أغسطس 2025، 08_56_00 م.png" alt="Al Yaqeen Logo" class="site-logo">
+    </header>
+
+    <div class="memos-section">
+        <div class="memos-actions">
+            <button class="action-btn pending-delivery-btn">
+                <i class="fas fa-clock"></i>
+                مستحقين الاستلام
+            </button>
+            <button class="action-btn payment-required-btn">
+                <i class="fas fa-exclamation-circle"></i>
+                وجوب الدفع
+            </button>
+            <button class="action-btn received-btn">
+                <i class="fas fa-check-circle"></i>
+                تم الاستلام
+            </button>
+        </div>
+
+        <div class="search-container">
+            <div class="input-with-keyboard">
+                <input type="text" id="memosStudentSearch" class="search-input" placeholder="ابحث عن طالب...">
+                <button type="button" class="keyboard-btn" data-target="memosStudentSearch">
+                    <i class="fas fa-keyboard"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="memos-table">
+                <thead>
+                    <tr>
+                        <th>م</th>
+                        <th>اسم الطالب</th>
+                        <th>حالة المذكرة</th>
+                        <th>إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="memosTableBody">
+                    <!-- Students will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Virtual Keyboard Modal -->
+    <div id="virtualKeyboardModal" class="modal keyboard-modal">
+        <div class="modal-content">
+            <div class="keyboard-header">
+                <h2>لوحة المفاتيح</h2>
+                <button class="keyboard-close">&times;</button>
+            </div>
+            <div class="virtual-keyboard">
+                <!-- Keyboard will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add student note modal -->
+    <div id="studentNoteModal" class="modal student-note-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>ملاحظات الطالب</h2>
+            <form id="studentNoteForm">
+                <textarea id="studentNoteText" class="student-note-textarea" placeholder="اكتب ملاحظاتك هنا..."></textarea>
+                <button type="submit" class="submit-btn">حفظ الملاحظة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pending Delivery Modal -->
+    <div id="pendingDeliveryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>مستحقين الاستلام</h2>
+            <div class="table-container">
+                <table class="memos-table pending-table">
+                    <thead>
+                        <tr>
+                            <th>م</th>
+                            <th>رقم الطالب</th>
+                            <th>اسم الطالب</th>
+                            <th>حالة المذكرة</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pendingDeliveryTableBody">
+                        <!-- Content will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Required Modal -->
+    <div id="paymentRequiredModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>وجوب الدفع</h2>
+            <div class="table-container">
+                <table class="memos-table required-table">
+                    <thead>
+                        <tr>
+                            <th>م</th>
+                            <th>رقم الطالب</th>
+                            <th>اسم الطالب</th>
+                            <th>حالة المذكرة</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentRequiredTableBody">
+                        <!-- Content will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Received Modal -->
+    <div id="receivedModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>تم الاستلام</h2>
+            <div class="table-container">
+                <table class="memos-table received-table">
+                    <thead>
+                        <tr>
+                            <th>م</th>
+                            <th>رقم الطالب</th>
+                            <th>اسم الطالب</th>
+                            <th>حالة المذكرة</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="receivedTableBody">
+                        <!-- Content will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="credits">تم برمجة الموقع بواسطة المبرمج: مازن احمد بكر بدر</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="memos.js"></script>
+</body>
+</html>
